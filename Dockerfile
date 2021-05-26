@@ -33,12 +33,3 @@ RUN ln -s /sdk/tools/neo.sh /usr/bin/neo.sh
 
 # install nwabap cli as npm package, it is required to store it in /usr/local path to make use of npm package
 RUN npm install --prefix /usr/local -g ui5-nwabap-deployer-cli
-
-# copy your code file from your action repository to the filesystem path `/` of the container
-COPY entrypoint.sh /entrypoint.sh
-
-# update downloaded folder permissions
-RUN chmod +x /entrypoint.sh
-
-# shell file to load once container invokes
-ENTRYPOINT ["/entrypoint.sh"]
